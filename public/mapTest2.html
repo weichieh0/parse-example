@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+
+    <title>Waypoints in directions</title>
+ 
+</head>
+<body>
+    123
+    <script>
+    
+        // Parse.initialize('myAppId','unused');
+        // Parse.serverURL = 'https://whatever.herokuapp.com';
+        // var Parse = require('parse');
+        
+        Parse.initialize("myAppId",'unused');
+        // Parse.serverURL = 'https://arcane-sea-22073.herokuapp.com';
+    
+        var obj = new Parse.Object('GameScore');
+        obj.set('score',1337);
+        obj.save().then(function(obj) {
+            alert("success");
+            console.log(obj.toJSON());
+            var query = new Parse.Query('GameScore');
+             query.get(obj.id).then(function(objAgain) {
+            console.log(objAgain.toJSON());
+            }, function(err) {console.log(err); });
+        }, function(err) { console.log(err); });
+    
+    
+        Parse.Cloud.run("hello",{}, {
+              success: function (result) {
+                alert("result = " + result);
+              }, error: function (error) {
+                alert("error" + error);
+              }                                
+        });
+ 
+
+    </script>
+   
+</body>
+</html>
