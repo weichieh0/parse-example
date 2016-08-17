@@ -16,9 +16,9 @@
         // Parse.serverURL = 'https://whatever.herokuapp.com';
         // var Parse = require('parse');
         
-        Parse.initialize("myAppId",'unused');
-        Parse.serverURL = 'https://murmuring-waters-87951.herokuapp.com/';
-    
+        Parse.initialize("myAppId",'myJavaScriptKey');
+        // Parse.serverURL = 'https://murmuring-waters-87951.herokuapp.com/';
+//     
         var obj = new Parse.Object('GameScore');
         obj.set('score',1337);
         obj.save().then(function(obj) {
